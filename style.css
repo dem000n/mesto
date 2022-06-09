@@ -1,6 +1,16 @@
+@font-face {
+    font-family: 'Inter';
+    src: url(./fonts/Inter-Regular.ttf) format('tryetype'),
+        url(./fonts/Inter-Regular.woff) format('woff'),
+        url(./fonts/Inter-Regular.woff2) format('woff2');
+}
+
 .page {
     background-color: black;
+    font-family: 'Inter';
+    color: white;
 }
+
 .wrapper {
     max-width: 1280px;
     min-width: 320px;
@@ -10,11 +20,13 @@
 .header {
     padding-top: 45px;
 }
+
 .header__logo {
     background: url(./images/logo.svg);
     width: 142px;
     height: 33px;
 }
+
 .header__decoration-line {
     margin-top: 41px;
     border: 1px solid #545454;
@@ -22,7 +34,11 @@
 
 .profile {
     padding-top: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
 .profile__avatar {
     background: url(./images/avatar.jpg) no-repeat center;
     width: 127px;
@@ -30,13 +46,40 @@
     border-radius: 50%;
     object-fit: cover;
 }
+
+.profile__info {
+    display: flex;
+
+}
+
 .profile__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 30px;
 }
+
 .profile__name {
+    display: flex;
+    font-size: 42px;
+    line-height: 48px;
 }
+
 .profile__edit-btn {
+    background: url(./images/edit-btn.svg);
+    width: 24px;
+    height: 24px;
+    align-self: center;
+    margin-left: 18px;
 }
+
 .profile__about {
+    font-size: 18px;
+    line-height: 22px;
 }
+
 .profile__add-btn {
+    background: url(./images/add-btn.svg);
+    height: 50px;
+    width: 150px;
 }
