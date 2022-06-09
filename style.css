@@ -19,3 +19,24 @@
     margin-top: 41px;
     border: 1px solid #545454;
 }
+
+.profile {
+    padding-top: 36px;
+}
+.profile__avatar {
+    background: url(./images/avatar.jpg) no-repeat center;
+    width: 127px;
+    height: 127px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.profile__text {
+}
+.profile__name {
+}
+.profile__edit-btn {
+}
+.profile__about {
+}
+.profile__add-btn {
+}
