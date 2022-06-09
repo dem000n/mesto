@@ -1,0 +1,21 @@
+.page {
+    background-color: black;
+}
+.wrapper {
+    max-width: 1280px;
+    min-width: 320px;
+    margin: auto;
+}
+
+.header {
+    padding-top: 45px;
+}
+.header__logo {
+    background: url(./images/logo.svg);
+    width: 142px;
+    height: 33px;
+}
+.header__decoration-line {
+    margin-top: 41px;
+    border: 1px solid #545454;
+}
