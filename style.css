@@ -172,3 +172,13 @@
     background-repeat: no-repeat;
     cursor: pointer;
 }
+
+.footer {
+    min-height: 145px;
+    display: flex;
+    align-items: center;
+}
+.footer__copyright {
+    margin: 0;
+    color: #545454;
+}
