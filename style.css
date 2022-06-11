@@ -1,9 +1,24 @@
 @font-face {
     font-family: 'Inter';
+    font-weight: 400;
     src: url(./fonts/Inter-Regular.ttf) format('tryetype'),
         url(./fonts/Inter-Regular.woff) format('woff'),
         url(./fonts/Inter-Regular.woff2) format('woff2');
 }
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 500;
+    src: url(./fonts/Inter-Medium.woff2) format("woff2"),
+         url(./fonts/Inter-Medium.woff) format("woff");
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    font-weight: 900;
+    src: url(./fonts/Inter-Black.woff2) format("woff2"),
+         url(./fonts/Inter-Black.woff) format("woff");
+  }
 
 .page {
     background-color: black;
@@ -82,4 +97,49 @@
     background: url(./images/add-btn.svg);
     height: 50px;
     width: 150px;
+}
+
+.place-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 282px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.place-card__image {
+    max-width: 282px;
+    min-height: 282px;
+}
+
+.place-card__image_place_karachaevsk {
+    background: url(./images/cards/karachaevsk.jpg) center/100%;
+
+}
+
+.place-card__info {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    height: 79px;
+    align-items: center;
+    padding: 0 21px;
+}
+
+.place-card__title {
+    color: black;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 900;
+}
+
+.place-card__like-btn {
+    width: 22px;
+    height: 19px;
+    border: none;
+    background-image: url(./images/cards/like.svg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
