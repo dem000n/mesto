@@ -1,0 +1,8 @@
+.popup__save-btn {
+height: 50px;
+border: none;
+border-radius: 2px;
+background-color: black;
+color: white;
+cursor: pointer;
+}
