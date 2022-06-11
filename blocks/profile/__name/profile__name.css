@@ -1,0 +1,5 @@
+.profile__name {
+    display: flex;
+    font-size: 42px;
+    line-height: 48px;
+}

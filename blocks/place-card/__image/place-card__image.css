@@ -1,0 +1,7 @@
+.place-card__image {
+    max-width: 282px;
+    min-height: 282px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}

@@ -1,0 +1,10 @@
+.place-card__like-btn {
+    width: 22px;
+    height: 19px;
+    border: none;
+    background-image: url(./images/cards/like.svg);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
