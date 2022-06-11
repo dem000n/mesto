@@ -27,7 +27,7 @@
 }
 
 .wrapper {
-    max-width: 1280px;
+    max-width: 880px;
     min-width: 320px;
     margin: auto;
 }
@@ -99,6 +99,13 @@
     width: 150px;
 }
 
+.places-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 17px;
+    padding-top: 47px;
+}
+
 .place-card {
     display: flex;
     flex-direction: column;
@@ -110,30 +117,33 @@
 .place-card__image {
     max-width: 282px;
     min-height: 282px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .place-card__image_place_karachaevsk {
-    background: url(./images/cards/karachaevsk.jpg) center/100%;
+    background-image: url(./images/cards/karachaevsk.jpg);
 }
 
 .place-card__image_place_elbrus {
-    background: url(./images/cards/elbrus.jpg) center/100%;
+    background-image: url(./images/cards/elbrus.jpg);
 }
 
 .place-card__image_place_dombai {
-    background: url(./images/cards/dombai.jpg) center/100%;
+    background-image: url(./images/cards/dombai.jpg);
 }
 
 .place-card__image_place_karelia {
-    background: url(./images/cards/karelia.jpg) center/100%;
+    background-image: url(./images/cards/karelia.jpg);
 }
 
 .place-card__image_place_murmansk {
-    background: url(./images/cards/murmansk.jpg) center/100%;
+    background-image: url(./images/cards/murmansk.jpg);
 }
 
 .place-card__image_place_spb {
-    background: url(./images/cards/saint-petersburg.jpg) center/100%;
+    background-image: url(./images/cards/saint-petersburg.jpg);
 }
 
 .place-card__info {
