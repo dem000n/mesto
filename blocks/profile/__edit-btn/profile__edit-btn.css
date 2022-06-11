@@ -4,4 +4,15 @@
     height: 24px;
     align-self: center;
     margin-left: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .profile__edit-btn {
+        width: 18px;
+        height: 18px;
+        background-size: cover;
+        margin-left: 10px;
+    }
 }
