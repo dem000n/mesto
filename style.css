@@ -114,7 +114,26 @@
 
 .place-card__image_place_karachaevsk {
     background: url(./images/cards/karachaevsk.jpg) center/100%;
+}
 
+.place-card__image_place_elbrus {
+    background: url(./images/cards/elbrus.jpg) center/100%;
+}
+
+.place-card__image_place_dombai {
+    background: url(./images/cards/dombai.jpg) center/100%;
+}
+
+.place-card__image_place_karelia {
+    background: url(./images/cards/karelia.jpg) center/100%;
+}
+
+.place-card__image_place_murmansk {
+    background: url(./images/cards/murmansk.jpg) center/100%;
+}
+
+.place-card__image_place_spb {
+    background: url(./images/cards/saint-petersburg.jpg) center/100%;
 }
 
 .place-card__info {
