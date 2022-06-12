@@ -2,24 +2,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 20px 17px;
-    padding-top: 47px;
+    padding: 47px 0 0 0;
     justify-items: center;
 }
 
 @media screen and (max-width: 880px) {
     .places-grid {
-        display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px 17px;
-        padding-top: 47px;
     }
 }
 
 @media screen and (max-width: 580px) {
     .places-grid {
-        display: grid;
         grid-template-columns: 1fr;
-        gap: 20px 17px;
-        padding-top: 47px;
     }
 }

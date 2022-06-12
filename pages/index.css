@@ -1,3 +1,4 @@
+@import url(../vendor/normalize.css);
 @import url(../blocks/place-card/__title/place-card__title.css);
 @import url(../blocks/place-card/__info/place-card__info.css);
 @import url(../blocks/place-card/__image/place-card__image.css);
