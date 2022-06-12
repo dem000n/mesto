@@ -1,21 +1,21 @@
 const editProfileBtn = document.querySelector('.profile__edit-btn')
 const closeProfilePopupBtn = document.querySelector('.popup__close-btn')
 const popup = document.querySelector('.popup')
-const popupSubmitBtn = document.querySelector('.popup__save-btn')
+const form = document.querySelector('.popup__form')
+let profileNameText = document.querySelector('.profile__name')
+let popupNameText = document.querySelector('.popup__name')
+let profileAboutText = document.querySelector('.profile__about')
+let popupAboutText = document.querySelector('.popup__about')
 
-
-let popupNameText = document.querySelector('.profile__name').textContent
-document.querySelector('.popup__name').value = popupNameText
-
-let popupAboutText = document.querySelector('.profile__about').textContent
-document.querySelector('.popup__about').value = popupAboutText
 
 editProfileBtn.addEventListener('click', showEditProfilePopup)
 closeProfilePopupBtn.addEventListener('click', hideEditProfilePopup)
-popupSubmitBtn.addEventListener('click', popupSubmitHandler)
+form.addEventListener('submit', popupSubmitHandler)
 
 
 function showEditProfilePopup() {
+    popupNameText.value = profileNameText.textContent
+    popupAboutText.value =  profileAboutText.textContent
     popup.classList.add('popup_opened')
 }
 
@@ -25,8 +25,8 @@ function hideEditProfilePopup() {
 
 function popupSubmitHandler(evt) {
     evt.preventDefault()
-    document.querySelector('.profile__name').childNodes[0].nodeValue = document.querySelector('.popup__name').value
-    document.querySelector('.profile__about').textContent = document.querySelector('.popup__about').value
-    popup.classList.remove('popup_opened')
+    profileNameText.textContent = popupNameText.value
+    profileAboutText.textContent = popupAboutText.value
+    hideEditProfilePopup()
 }
 

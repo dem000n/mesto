@@ -3,6 +3,7 @@
     height: 19px;
     border: none;
     background-image: url(../../../images/cards/like.svg);
+    background-color: transparent;
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
