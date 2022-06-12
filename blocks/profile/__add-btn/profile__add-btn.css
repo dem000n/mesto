@@ -5,6 +5,11 @@
     width: 150px;
     border: none;
     cursor: pointer;
+    transition: opacity 0.3s ease-in;
+}
+
+.profile__add-btn:hover {
+    opacity: .6;
 }
 
 @media screen and (max-width: 700px) {

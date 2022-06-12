@@ -5,4 +5,9 @@ border-radius: 2px;
 background-color: black;
 color: white;
 cursor: pointer;
+transition: opacity 0.3s ease-in;
+}
+
+.popup__save-btn:hover {
+opacity: .8;
 }
