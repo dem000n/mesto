@@ -21,57 +21,57 @@
                     <div class="profile__text">
                         <div class="profile__name-container">
                             <h1 class="profile__name" >Жак-Ив Кусто</h1>
-                            <button class="profile__edit-btn hover-effect"></button>
+                            <button class="profile__edit-btn hover-effect" type="button"></button>
                         </div>
                         <p class="profile__about">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-btn hover-effect"></button>
+                <button class="profile__add-btn hover-effect" type="button"></button>
             </section>
-            <ul class="places-grid">
-                <li class="place-card">
-                    <div class="place-card__image place-card__image_place_karachaevsk"></div>
+            <section class="places-grid">
+                <div class="place-card">
+                    <img class="place-card__image" src="./images/cards/karachaevsk.jpg"></img>
                     <div class="place-card__info">
                         <h2 class="place-card__title">Карачаевск</h2>
-                        <button class="place-card__like-btn hover-effect"></button>
+                        <button class="place-card__like-btn hover-effect" type="button"></button>
                     </div>
-                </li>
-                <li class="place-card">
-                    <div class="place-card__image place-card__image_place_elbrus"></div>
+                </div>
+                <div class="place-card">
+                    <img class="place-card__image" src="./images/cards/elbrus.jpg"></img>
                     <div class="place-card__info">
                         <h2 class="place-card__title">Гора Эльбрус</h2>
-                        <button class="place-card__like-btn hover-effect"></button>
+                        <button class="place-card__like-btn hover-effect" type="button"></button>
                     </div>
-                </li>
-                <li class="place-card">
-                    <div class="place-card__image place-card__image_place_dombai"></div>
+                </div>
+                <div class="place-card">
+                    <img class="place-card__image" src="./images/cards/dombai.jpg"></img>
                     <div class="place-card__info">
                         <h2 class="place-card__title">Домбай</h2>
-                        <button class="place-card__like-btn hover-effect"></button>
+                        <button class="place-card__like-btn hover-effect" type="button"></button>
                     </div>
-                </li>
-                <li class="place-card">
-                    <div class="place-card__image place-card__image_place_karelia"></div>
+                </div>
+                <div class="place-card">
+                    <img class="place-card__image" src="./images/cards/karelia.jpg"></img>
                     <div class="place-card__info">
                         <h2 class="place-card__title">Карелия</h2>
-                        <button class="place-card__like-btn hover-effect"></button>
+                        <button class="place-card__like-btn hover-effect" type="button"></button>
                     </div>
-                </li>
-                <li class="place-card">
-                    <div class="place-card__image place-card__image_place_murmansk"></div>
+                </div>
+                <div class="place-card">
+                    <img class="place-card__image" src="./images/cards/murmansk.jpg"></img>
                     <div class="place-card__info">
                         <h2 class="place-card__title">Мурманск</h2>
-                        <button class="place-card__like-btn hover-effect"></button>
+                        <button class="place-card__like-btn hover-effect" type="button"></button>
                     </div>
-                </li>
-                <li class="place-card">
-                    <div class="place-card__image place-card__image_place_spb"></div>
+                </div>
+                <div class="place-card">
+                    <img class="place-card__image" src="./images/cards/saint-petersburg.jpg"></img>
                     <div class="place-card__info">
                         <h2 class="place-card__title">Санкт-Петербург</h2>
-                        <button class="place-card__like-btn hover-effect"></button>
+                        <button class="place-card__like-btn hover-effect" type="button"></button>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>
@@ -81,7 +81,7 @@
     <div class="popup">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать&nbsp;профиль</h2>
-            <form class="popup__form">
+            <form class="popup__form" name="popup__form">
                 <input type="text" class="popup__name">
                 <input type="text" class="popup__about">
                 <input type="submit" value="Сохранить" class="popup__save-btn">
