@@ -8,5 +8,12 @@
     padding: 36px 34px;
     border-radius: 10px;
     position: relative;
-    
+
+}
+
+
+@media screen and (max-width: 525px) {
+    .popup__container {
+        width: calc(100% - 2*19px);
+    }
 }
