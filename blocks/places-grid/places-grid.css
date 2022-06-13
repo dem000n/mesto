@@ -5,3 +5,9 @@
     padding: 47px 0 0 0;
     justify-items: center;
 }
+
+@media screen and (max-width: 700px) {
+    .places-grid {
+        padding: 36px 0 0 0;
+    }
+}
