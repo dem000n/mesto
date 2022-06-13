@@ -3,9 +3,9 @@ const closeProfilePopupBtn = document.querySelector('.popup__close-btn')
 const popup = document.querySelector('.popup')
 const form = document.querySelector('.popup__form')
 let profileNameText = document.querySelector('.profile__name')
-let popupNameText = document.querySelector('.input_type_name')
+let popupNameText = document.querySelector('.input__item_type_name')
 let profileAboutText = document.querySelector('.profile__about')
-let popupAboutText = document.querySelector('.input_type_about')
+let popupAboutText = document.querySelector('.input__item_type_about')
 
 
 editProfileBtn.addEventListener('click', showEditProfilePopup)
