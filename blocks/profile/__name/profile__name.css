@@ -4,8 +4,8 @@
     font-weight: normal;
     margin: 0;
     max-width: 294px;
-    text-overflow: ellipsis; 
-    white-space: nowrap; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
 }
 
