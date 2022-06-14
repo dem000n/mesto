@@ -20,7 +20,7 @@
                     <div class="profile__avatar" style="background-image: url(./images/avatar.jpg)"></div>
                     <div class="profile__text">
                         <div class="profile__name-container">
-                            <h1 class="profile__name" >Жак-Ив Кусто</h1>
+                            <h1 class="profile__name">Жак-Ив Кусто</h1>
                             <button aria-label="Редактировать профиль" class="profile__edit-btn" type="button"></button>
                         </div>
                         <p class="profile__about">Исследователь океана</p>
@@ -82,10 +82,8 @@
         <div class="popup__container">
             <h2 class="popup__title">Редактировать&nbsp;профиль</h2>
             <form class="popup__form" name="popup__form">
-                <div class="input">
-                    <input type="text" name="popup-name-input" class="input__item input__item_type_name">
-                    <input type="text" name="popup-about-input" class="input__item input__item_type_about">
-                </div>
+                <input type="text" name="popup-name-input" class="input input_type_name">
+                <input type="text" name="popup-about-input" class="input input_type_about">
                 <input type="submit" value="Сохранить" class="popup__save-btn">
             </form>
             <button aria-label="Закрыть" class="popup__close-btn" type="button"></button>
