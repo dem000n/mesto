@@ -113,15 +113,38 @@ loadInitialCards()
 
 //Операции с карточкой
 const placesGrid = document.querySelector('.places-grid')
-placesGrid.addEventListener('click', toggleLike)
+placesGrid.addEventListener('click', cardsOperations)
 
-function toggleLike(event) {
-    //Лайки
+function cardsOperations(event) {
+    //Лайк
     if (event.target.classList.contains('place-card__like-btn')){
         event.target.classList.toggle('place-card__like-btn_active')
     //Удаление
     } else if (event.target.classList == 'place-card__del-btn'){
         event.target.closest('.place-card').remove()
         console.log(event.target.closest('.place-card'))
+    //Увеличение
+    } else if (event.target.classList == 'place-card__image'){
+        const placeCard = event.target.closest('.place-card')
+        showFullscreenImagePopup(placeCard)
     }
 }
+
+//Логика попапа полноэкранного изображения
+function showFullscreenImagePopup(target) {
+    const imagePopup = document.querySelector('.image-popup')
+    const imagePopupImage = document.querySelector('.image-popup__image')
+    const imagePopupCaption = document.querySelector('.image-popup__caption')
+    const imageUrl = target.querySelector('.place-card__image').src
+    const imageTitle = target.querySelector('.place-card__title').textContent
+    
+    imagePopupImage.src = imageUrl
+    imagePopupCaption.textContent = imageTitle
+    console.log(imageUrl, imageTitle);
+    imagePopup.classList.add('image-popup_opened')
+}
+
+fullscreenImagePopupCloseBtn = document.querySelector('.image-popup__close-btn')
+fullscreenImagePopupCloseBtn.addEventListener('click', (evt) => {
+    evt.target.closest('.image-popup_opened').classList.remove('image-popup_opened')
+})
