@@ -26,7 +26,7 @@ const initialCards = [
 ];
 const editProfileBtn = document.querySelector('.profile__edit-btn')
 const closeProfilePopupBtn = document.querySelector('.popup__close-btn')
-const popup = document.querySelector('.popup')
+const editProfilePopup = document.querySelector('.popup_type_edit-profile')
 const form = document.querySelector('.popup__form')
 let profileNameText = document.querySelector('.profile__name')
 let popupNameText = document.querySelector('.input_type_name')
@@ -42,11 +42,11 @@ form.addEventListener('submit', popupSubmitHandler)
 function showEditProfilePopup() {
     popupNameText.value = profileNameText.textContent
     popupAboutText.value = profileAboutText.textContent
-    popup.classList.add('popup_opened')
+    editProfilePopup.classList.add('popup_opened')
 }
 
 function hideEditProfilePopup() {
-    popup.classList.remove('popup_opened')
+    editProfilePopup.classList.remove('popup_opened')
 }
 
 function popupSubmitHandler(evt) {
@@ -55,6 +55,26 @@ function popupSubmitHandler(evt) {
     profileAboutText.textContent = popupAboutText.value
     hideEditProfilePopup()
 }
+
+
+
+const addCardPopup = document.querySelector('.popup_type_add-card')
+
+const addCardButton = document.querySelector('.profile__add-btn')
+addCardButton.addEventListener('click', showAddCardPopup)
+
+const addCardPopupCloseBtn = addCardPopup.querySelector('.popup__close-btn')
+addCardPopupCloseBtn.addEventListener('click', hideAddCardPopup)
+
+function showAddCardPopup() {
+    addCardPopup.classList.add('popup_opened')
+}
+
+function hideAddCardPopup () {
+    addCardPopup.classList.remove('popup_opened')
+}
+
+
 
 
 

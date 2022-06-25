@@ -37,13 +37,25 @@
         </footer>
     </div>
 
-    <div class="popup">
+    <div class="popup popup_type_edit-profile">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать&nbsp;профиль</h2>
             <form class="popup__form" name="popup__form">
                 <input type="text" name="popup-name-input" class="input input_type_name">
                 <input type="text" name="popup-about-input" class="input input_type_about">
                 <input type="submit" value="Сохранить" class="popup__save-btn">
+            </form>
+            <button aria-label="Закрыть" class="popup__close-btn" type="button"></button>
+        </div>
+    </div>
+
+    <div class="popup popup_type_add-card">
+        <div class="popup__container">
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form" name="popup__form">
+                <input type="text" placeholder="Название" name="add-card-popup-title-input" class="input input_type_name">
+                <input type="text" placeholder="Ссылка на картинку" name="add-card-popup-image-link-input" class="input input_type_about">
+                <input type="submit" value="Создать" class="popup__save-btn">
             </form>
             <button aria-label="Закрыть" class="popup__close-btn" type="button"></button>
         </div>
