@@ -110,3 +110,14 @@ function loadInitialCards() {
 }
 
 loadInitialCards()
+
+//Лайки
+const placesGrid = document.querySelector('.places-grid')
+placesGrid.addEventListener('click', toggleLike)
+
+function toggleLike(event) {
+    if (event.target.classList.contains('place-card__like-btn')){
+        event.target.classList.toggle('place-card__like-btn_active')
+        console.log(event.target)
+    }
+}
