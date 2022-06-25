@@ -111,13 +111,17 @@ function loadInitialCards() {
 
 loadInitialCards()
 
-//Лайки
+//Операции с карточкой
 const placesGrid = document.querySelector('.places-grid')
 placesGrid.addEventListener('click', toggleLike)
 
 function toggleLike(event) {
+    //Лайки
     if (event.target.classList.contains('place-card__like-btn')){
         event.target.classList.toggle('place-card__like-btn_active')
-        console.log(event.target)
+    //Удаление
+    } else if (event.target.classList == 'place-card__del-btn'){
+        event.target.closest('.place-card').remove()
+        console.log(event.target.closest('.place-card'))
     }
 }
