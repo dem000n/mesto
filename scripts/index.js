@@ -27,7 +27,8 @@ const initialCards = [
 const editProfileBtn = document.querySelector('.profile__edit-btn')
 const closeProfilePopupBtn = document.querySelector('.popup__close-btn')
 const editProfilePopup = document.querySelector('.popup_type_edit-profile')
-const form = document.querySelector('.popup__form')
+const profileForm = document.querySelector('.popup__form_type_profile')
+const placeCardTemplate = document.querySelector('#place-card-template').content
 let profileNameText = document.querySelector('.profile__name')
 let popupNameText = document.querySelector('.input_type_name')
 let profileAboutText = document.querySelector('.profile__about')
@@ -36,7 +37,7 @@ let popupAboutText = document.querySelector('.input_type_about')
 
 editProfileBtn.addEventListener('click', showEditProfilePopup)
 closeProfilePopupBtn.addEventListener('click', hideEditProfilePopup)
-form.addEventListener('submit', popupSubmitHandler)
+profileForm.addEventListener('submit', popupSubmitHandler)
 
 
 function showEditProfilePopup() {
@@ -57,7 +58,7 @@ function popupSubmitHandler(evt) {
 }
 
 
-
+//Логика попапа для добавления карточки
 const addCardPopup = document.querySelector('.popup_type_add-card')
 
 const addCardButton = document.querySelector('.profile__add-btn')
@@ -75,18 +76,36 @@ function hideAddCardPopup () {
 }
 
 
+//Добавление карточек пользователем
+const addCardForm = document.querySelector('.popup__form_type_add-card')
+addCardForm.addEventListener('submit', AddCardPopupSubmitHandler)
+
+function AddCardPopupSubmitHandler(evt) {
+    evt.preventDefault()
+    let cardTitle = document.querySelector('.input_type_card-title').value
+    let cardLink = document.querySelector('.input_type_card-link').value
+    addCard(cardTitle, cardLink)
+    hideAddCardPopup ()
+}
+
+function addCard (title, link){
+    const placeCardElement = placeCardTemplate.querySelector('.place-card').cloneNode(true)
+    const placeCards = document.querySelector('.places-grid')
+    placeCardElement.querySelector('.place-card__image').src = link
+    placeCardElement.querySelector('.place-card__title').textContent = title
+    placeCards.prepend(placeCardElement);
+}
 
 
 
+//Начальная загрузка карточек
 function loadInitialCards() {
-    const placeCardTemplate = document.querySelector('#place-card-template').content
-
     initialCards.forEach((card) => {
         const placeCardElement = placeCardTemplate.querySelector('.place-card').cloneNode(true)
         const placeCards = document.querySelector('.places-grid')
         placeCardElement.querySelector('.place-card__image').src = card.link
         placeCardElement.querySelector('.place-card__title').textContent = card.name
-        placeCards.append(placeCardElement);
+        placeCards.prepend(placeCardElement);
     })
 }
 
