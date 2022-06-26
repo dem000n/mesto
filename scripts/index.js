@@ -84,6 +84,10 @@ function AddCardPopupSubmitHandler(evt) {
     evt.preventDefault()
     let cardTitle = document.querySelector('.input_type_card-title').value
     let cardLink = document.querySelector('.input_type_card-link').value
+    let cardTitleInput = document.querySelector('.input_type_card-title')
+    let cardLinkInput = document.querySelector('.input_type_card-link')
+    cardTitleInput.value = ''
+    cardLinkInput.value = ''
     addCard(cardTitle, cardLink)
     hideAddCardPopup ()
 }
