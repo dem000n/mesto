@@ -1,30 +1,35 @@
 const editProfileBtn = document.querySelector('.profile__edit-btn')
 const closeProfilePopupBtn = document.querySelector('.popup__close-btn')
-const editProfilePopup = document.querySelector('.popup_type_edit-profile')
+const popupEditProfile = document.querySelector('.popup_type_edit-profile')
 const profileForm = document.querySelector('.popup__form_type_profile')
 const placeCardTemplate = document.querySelector('#place-card-template').content
-let profileNameText = document.querySelector('.profile__name')
-let popupNameText = document.querySelector('.input_type_name')
-let profileAboutText = document.querySelector('.profile__about')
-let popupAboutText = document.querySelector('.input_type_about')
+const profileNameText = document.querySelector('.profile__name')
+const popupNameText = document.querySelector('.input_type_name')
+const profileAboutText = document.querySelector('.profile__about')
+const popupAboutText = document.querySelector('.input_type_about')
+const cardTitleInput = document.querySelector('.input_type_card-title')
+const cardLinkInput = document.querySelector('.input_type_card-link')
+const imagePopup = document.querySelector('.image-popup')
+const imagePopupImage = document.querySelector('.image-popup__image')
+const imagePopupCaption = document.querySelector('.image-popup__caption')
 
 
 editProfileBtn.addEventListener('click', showEditProfilePopup)
 closeProfilePopupBtn.addEventListener('click', hideEditProfilePopup)
-profileForm.addEventListener('submit', popupSubmitHandler)
+profileForm.addEventListener('submit', submitEditProfileForm)
 
 
 function showEditProfilePopup() {
     popupNameText.value = profileNameText.textContent
     popupAboutText.value = profileAboutText.textContent
-    editProfilePopup.classList.add('popup_opened')
+    popupEditProfile.classList.add('popup_opened')
 }
 
 function hideEditProfilePopup() {
-    editProfilePopup.classList.remove('popup_opened')
+    popupEditProfile.classList.remove('popup_opened')
 }
 
-function popupSubmitHandler(evt) {
+function submitEditProfileForm(evt) {
     evt.preventDefault()
     profileNameText.textContent = popupNameText.value
     profileAboutText.textContent = popupAboutText.value
@@ -33,37 +38,35 @@ function popupSubmitHandler(evt) {
 
 
 //Логика попапа для добавления карточки
-const addCardPopup = document.querySelector('.popup_type_add-card')
+const popupAddCard = document.querySelector('.popup_type_add-card')
 
 const addCardButton = document.querySelector('.profile__add-btn')
 addCardButton.addEventListener('click', showAddCardPopup)
 
-const addCardPopupCloseBtn = addCardPopup.querySelector('.popup__close-btn')
+const addCardPopupCloseBtn = popupAddCard.querySelector('.popup__close-btn')
 addCardPopupCloseBtn.addEventListener('click', hideAddCardPopup)
 
 function showAddCardPopup() {
-    addCardPopup.classList.add('popup_opened')
+    popupAddCard.classList.add('popup_opened')
 }
 
 function hideAddCardPopup () {
-    addCardPopup.classList.remove('popup_opened')
+    popupAddCard.classList.remove('popup_opened')
 }
 
 
 //Добавление карточек пользователем
-const addCardForm = document.querySelector('.popup__form_type_add-card')
-addCardForm.addEventListener('submit', AddCardPopupSubmitHandler)
+const formAddCard = document.querySelector('.popup__form_type_add-card')
+formAddCard.addEventListener('submit', submitAddCardForm)
 
-function AddCardPopupSubmitHandler(evt) {
+function submitAddCardForm(evt) {
     evt.preventDefault()
-    let cardTitle = document.querySelector('.input_type_card-title').value
-    let cardLink = document.querySelector('.input_type_card-link').value
+    const cardTitle = cardTitleInput.value
+    const cardLink = cardLinkInput.value
     //Очищаем данные полей
-    let cardTitleInput = document.querySelector('.input_type_card-title')
-    let cardLinkInput = document.querySelector('.input_type_card-link')
     cardTitleInput.value = ''
     cardLinkInput.value = ''
-    
+
     addCard(cardTitle, cardLink)
     hideAddCardPopup ()
 }
@@ -112,15 +115,11 @@ function cardsOperations(event) {
 
 //Логика попапа полноэкранного изображения
 function showFullscreenImagePopup(target) {
-    const imagePopup = document.querySelector('.image-popup')
-    const imagePopupImage = document.querySelector('.image-popup__image')
-    const imagePopupCaption = document.querySelector('.image-popup__caption')
     const imageUrl = target.querySelector('.place-card__image').src
     const imageTitle = target.querySelector('.place-card__title').textContent
-    
     imagePopupImage.src = imageUrl
     imagePopupCaption.textContent = imageTitle
-    console.log(imageUrl, imageTitle);
+    imagePopupImage.alt = imageTitle
     imagePopup.classList.add('image-popup_opened')
 }
 
