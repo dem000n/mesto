@@ -15,25 +15,51 @@ const imagePopupCaption = document.querySelector('.image-popup__caption')
 
 
 editProfileBtn.addEventListener('click', showEditProfilePopup)
-closeProfilePopupBtn.addEventListener('click', hideEditProfilePopup)
+closeProfilePopupBtn.addEventListener('click', () => {closePopup(popupEditProfile)})
 profileForm.addEventListener('submit', submitEditProfileForm)
+
+//Функция открытия любого попапа
+function openPopup(popup) {
+    switch (popup.classList[0]) {
+        case 'popup':
+            popup.classList.add('popup_opened')
+            break
+        case 'image-popup':
+            popup.classList.add('image-popup_opened')
+            break
+    }
+
+}
+
+//Функция закрытия любого попапа
+function closePopup(popup) {
+    switch (popup.classList[0]) {
+        case 'popup':
+            popup.classList.remove('popup_opened')
+            break
+        case 'image-popup':
+            popup.classList.remove('image-popup_opened')
+            break
+    }
+
+}
 
 
 function showEditProfilePopup() {
     popupNameText.value = profileNameText.textContent
     popupAboutText.value = profileAboutText.textContent
-    popupEditProfile.classList.add('popup_opened')
+    openPopup(popupEditProfile)
 }
 
-function hideEditProfilePopup() {
-    popupEditProfile.classList.remove('popup_opened')
-}
+// function hideEditProfilePopup() {
+//     popupEditProfile.classList.remove('popup_opened')
+// }
 
 function submitEditProfileForm(evt) {
     evt.preventDefault()
     profileNameText.textContent = popupNameText.value
     profileAboutText.textContent = popupAboutText.value
-    hideEditProfilePopup()
+    closePopup(popupEditProfile)
 }
 
 
@@ -41,18 +67,18 @@ function submitEditProfileForm(evt) {
 const popupAddCard = document.querySelector('.popup_type_add-card')
 
 const addCardButton = document.querySelector('.profile__add-btn')
-addCardButton.addEventListener('click', showAddCardPopup)
+addCardButton.addEventListener('click', () => {openPopup(popupAddCard)})
 
 const addCardPopupCloseBtn = popupAddCard.querySelector('.popup__close-btn')
-addCardPopupCloseBtn.addEventListener('click', hideAddCardPopup)
+addCardPopupCloseBtn.addEventListener('click', () => {closePopup(popupAddCard)})
 
-function showAddCardPopup() {
-    popupAddCard.classList.add('popup_opened')
-}
+// function showAddCardPopup() {
+//     popupAddCard.classList.add('popup_opened')
+// }
 
-function hideAddCardPopup () {
-    popupAddCard.classList.remove('popup_opened')
-}
+// function hideAddCardPopup () {
+//     popupAddCard.classList.remove('popup_opened')
+// }
 
 
 //Добавление карточек пользователем
@@ -68,7 +94,7 @@ function submitAddCardForm(evt) {
     cardLinkInput.value = ''
 
     addCard(cardTitle, cardLink)
-    hideAddCardPopup ()
+    closePopup(popupAddCard)
 }
 
 function addCard (title, link){
@@ -120,10 +146,9 @@ function showFullscreenImagePopup(target) {
     imagePopupImage.src = imageUrl
     imagePopupCaption.textContent = imageTitle
     imagePopupImage.alt = imageTitle
-    imagePopup.classList.add('image-popup_opened')
+    openPopup(imagePopup)
 }
 
 fullscreenImagePopupCloseBtn = document.querySelector('.image-popup__close-btn')
-fullscreenImagePopupCloseBtn.addEventListener('click', (evt) => {
-    evt.target.closest('.image-popup_opened').classList.remove('image-popup_opened')
-})
+fullscreenImagePopupCloseBtn.addEventListener('click', () => {closePopup(imagePopup)})
+
