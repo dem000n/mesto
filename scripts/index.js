@@ -74,22 +74,15 @@ formAddCard.addEventListener('submit', submitAddCardForm)
 
 function submitAddCardForm(evt) {
     evt.preventDefault()
+    const placeCards = document.querySelector('.places-grid')
     const cardTitle = cardTitleInput.value
     const cardLink = cardLinkInput.value
     //Очищаем данные полей
     cardTitleInput.value = ''
     cardLinkInput.value = ''
 
-    addCard(cardTitle, cardLink)
+    placeCards.prepend(createCard(cardTitle,cardLink))
     closePopup(popupAddCard)
-}
-
-function addCard (title, link){
-    const placeCardElement = placeCardTemplate.querySelector('.place-card').cloneNode(true)
-    const placeCards = document.querySelector('.places-grid')
-    placeCardElement.querySelector('.place-card__image').src = link
-    placeCardElement.querySelector('.place-card__title').textContent = title
-    placeCards.prepend(placeCardElement);
 }
 
 //Логика попапа полноэкранного изображения
@@ -110,14 +103,14 @@ fullscreenImagePopupCloseBtn.addEventListener('click', () => {closePopup(imagePo
 function loadInitialCards() {
     const placeCards = document.querySelector('.places-grid')
     initialCards.forEach((item) => {
-        placeCards.prepend(createCard(item))
+        placeCards.prepend(createCard(item.name, item.link))
     })
 }
 
 loadInitialCards()
 
 //Функция создания карточки
-function createCard(card) {
+function createCard(title, link) {
     const cardElement = placeCardTemplate.querySelector('.place-card').cloneNode(true)
 
     const cardElementLikeBtn = cardElement.querySelector('.place-card__like-btn')
@@ -129,8 +122,8 @@ function createCard(card) {
     const cardElementImageBtn = cardElement.querySelector('.place-card__image')
     cardElementImageBtn.addEventListener('click', zoomCard)
 
-    cardElement.querySelector('.place-card__image').src = card.link
-    cardElement.querySelector('.place-card__title').textContent = card.name
+    cardElement.querySelector('.place-card__image').src =link
+    cardElement.querySelector('.place-card__title').textContent = title
     return cardElement
 }
 
