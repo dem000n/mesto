@@ -51,10 +51,6 @@ function showEditProfilePopup() {
     openPopup(popupEditProfile)
 }
 
-// function hideEditProfilePopup() {
-//     popupEditProfile.classList.remove('popup_opened')
-// }
-
 function submitEditProfileForm(evt) {
     evt.preventDefault()
     profileNameText.textContent = popupNameText.value
@@ -71,15 +67,6 @@ addCardButton.addEventListener('click', () => {openPopup(popupAddCard)})
 
 const addCardPopupCloseBtn = popupAddCard.querySelector('.popup__close-btn')
 addCardPopupCloseBtn.addEventListener('click', () => {closePopup(popupAddCard)})
-
-// function showAddCardPopup() {
-//     popupAddCard.classList.add('popup_opened')
-// }
-
-// function hideAddCardPopup () {
-//     popupAddCard.classList.remove('popup_opened')
-// }
-
 
 //Добавление карточек пользователем
 const formAddCard = document.querySelector('.popup__form_type_add-card')
@@ -105,40 +92,6 @@ function addCard (title, link){
     placeCards.prepend(placeCardElement);
 }
 
-
-
-//Начальная загрузка карточек
-function loadInitialCards() {
-    initialCards.forEach((card) => {
-        const placeCardElement = placeCardTemplate.querySelector('.place-card').cloneNode(true)
-        const placeCards = document.querySelector('.places-grid')
-        placeCardElement.querySelector('.place-card__image').src = card.link
-        placeCardElement.querySelector('.place-card__title').textContent = card.name
-        placeCards.prepend(placeCardElement);
-    })
-}
-
-loadInitialCards()
-
-//Операции с карточкой
-const placesGrid = document.querySelector('.places-grid')
-placesGrid.addEventListener('click', cardsOperations)
-
-function cardsOperations(event) {
-    //Лайк
-    if (event.target.classList.contains('place-card__like-btn')){
-        event.target.classList.toggle('place-card__like-btn_active')
-    //Удаление
-    } else if (event.target.classList == 'place-card__del-btn'){
-        event.target.closest('.place-card').remove()
-        console.log(event.target.closest('.place-card'))
-    //Увеличение
-    } else if (event.target.classList == 'place-card__image'){
-        const placeCard = event.target.closest('.place-card')
-        showFullscreenImagePopup(placeCard)
-    }
-}
-
 //Логика попапа полноэкранного изображения
 function showFullscreenImagePopup(target) {
     const imageUrl = target.querySelector('.place-card__image').src
@@ -152,3 +105,48 @@ function showFullscreenImagePopup(target) {
 fullscreenImagePopupCloseBtn = document.querySelector('.image-popup__close-btn')
 fullscreenImagePopupCloseBtn.addEventListener('click', () => {closePopup(imagePopup)})
 
+
+//Начальная загрузка карточек
+function loadInitialCards() {
+    const placeCards = document.querySelector('.places-grid')
+    initialCards.forEach((item) => {
+        placeCards.prepend(createCard(item))
+    })
+}
+
+loadInitialCards()
+
+//Функция создания карточки
+function createCard(card) {
+    const cardElement = placeCardTemplate.querySelector('.place-card').cloneNode(true)
+
+    const cardElementLikeBtn = cardElement.querySelector('.place-card__like-btn')
+    cardElementLikeBtn.addEventListener('click', toggleLike)
+
+    const cardElementDelBtn = cardElement.querySelector('.place-card__del-btn')
+    cardElementDelBtn.addEventListener('click', removeCard)
+
+    const cardElementImageBtn = cardElement.querySelector('.place-card__image')
+    cardElementImageBtn.addEventListener('click', zoomCard)
+
+    cardElement.querySelector('.place-card__image').src = card.link
+    cardElement.querySelector('.place-card__title').textContent = card.name
+    return cardElement
+}
+
+
+//Операции с карточкой
+function toggleLike(event) {
+    console.log(event);
+    event.target.classList.toggle('place-card__like-btn_active')
+}
+
+function removeCard(event) {
+    console.log(event.target.closest('.place-card'));
+    event.target.closest('.place-card').remove()
+}
+
+function zoomCard(event) {
+    const placeCard = event.target.closest('.place-card')
+    showFullscreenImagePopup(placeCard)
+}
