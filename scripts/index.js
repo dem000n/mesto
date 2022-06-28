@@ -12,6 +12,7 @@ const cardLinkInput = document.querySelector('.input_type_card-link')
 const imagePopup = document.querySelector('.image-popup')
 const imagePopupImage = document.querySelector('.image-popup__image')
 const imagePopupCaption = document.querySelector('.image-popup__caption')
+const placeCards = document.querySelector('.places-grid')
 
 
 editProfileBtn.addEventListener('click', showEditProfilePopup)
@@ -20,28 +21,12 @@ profileForm.addEventListener('submit', submitEditProfileForm)
 
 //Функция открытия любого попапа
 function openPopup(popup) {
-    switch (popup.classList[0]) {
-        case 'popup':
             popup.classList.add('popup_opened')
-            break
-        case 'image-popup':
-            popup.classList.add('image-popup_opened')
-            break
-    }
-
 }
 
 //Функция закрытия любого попапа
 function closePopup(popup) {
-    switch (popup.classList[0]) {
-        case 'popup':
             popup.classList.remove('popup_opened')
-            break
-        case 'image-popup':
-            popup.classList.remove('image-popup_opened')
-            break
-    }
-
 }
 
 
@@ -74,12 +59,10 @@ formAddCard.addEventListener('submit', submitAddCardForm)
 
 function submitAddCardForm(evt) {
     evt.preventDefault()
-    const placeCards = document.querySelector('.places-grid')
     const cardTitle = cardTitleInput.value
     const cardLink = cardLinkInput.value
     //Очищаем данные полей
-    cardTitleInput.value = ''
-    cardLinkInput.value = ''
+    formAddCard.reset()
 
     placeCards.prepend(createCard(cardTitle,cardLink))
     closePopup(popupAddCard)
@@ -101,9 +84,10 @@ fullscreenImagePopupCloseBtn.addEventListener('click', () => {closePopup(imagePo
 
 //Начальная загрузка карточек
 function loadInitialCards() {
-    const placeCards = document.querySelector('.places-grid')
     initialCards.forEach((item) => {
-        placeCards.prepend(createCard(item.name, item.link))
+        cardName = item.name
+        cardLink = item.link
+        placeCards.prepend(createCard(cardName, cardLink))
     })
 }
 
@@ -124,6 +108,7 @@ function createCard(title, link) {
 
     cardElement.querySelector('.place-card__image').src =link
     cardElement.querySelector('.place-card__title').textContent = title
+    cardElementImageBtn.alt = title
     return cardElement
 }
 
