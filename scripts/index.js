@@ -18,18 +18,26 @@ const btnAddCard = document.querySelector('.profile__add-btn')
 const btnCloaseAddCardPopup = popupAddCard.querySelector('.popup__close-btn')
 const formAddCard = document.querySelector('.popup__form_type_add-card')
 const fullscreenImagePopupCloseBtn = imagePopup.querySelector('.popup__close-btn')
-let openedPopup
 
 //Функция открытия любого попапа
 function openPopup(popup) {
             popup.classList.add('popup_opened')
-            openedPopup = popup
+            popup.focus()
+            popup.addEventListener('keydown', setEscListener)
 }
 
 //Функция закрытия любого попапа
 function closePopup(popup) {
             popup.classList.remove('popup_opened')
+            popup.removeEventListener('keydown', setEscListener)
 }
+
+function setEscListener(evt) {
+    if (evt.key === 'Escape') {
+        evt.target.classList.remove('popup_opened')
+    }
+}
+
 
 function showEditProfilePopup() {
     popupNameText.value = profileNameText.textContent
@@ -134,8 +142,8 @@ imagePopup.addEventListener('mousedown', (evt)=>{
         closePopup(imagePopup)
     }
 })
-document.addEventListener('keydown', (evt)=>{
-    if (evt.key === 'Escape') {
-        openedPopup.classList.remove('popup_opened')
-    }
-})
+// document.addEventListener('keydown', (evt)=>{
+//     if (evt.key === 'Escape') {
+//         openedPopup.classList.remove('popup_opened')
+//     }
+// })
