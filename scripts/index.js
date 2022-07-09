@@ -110,13 +110,6 @@ function zoomCard(event) {
 loadInitialCards()
 
 
-
-
-
-
-
-
-
 editProfileBtn.addEventListener('click', showEditProfilePopup)
 closeProfilePopupBtn.addEventListener('click', () => {closePopup(popupEditProfile)})
 profileForm.addEventListener('submit', submitEditProfileForm)
@@ -124,3 +117,18 @@ addCardButton.addEventListener('click', () => {openPopup(popupAddCard)})
 addCardPopupCloseBtn.addEventListener('click', () => {closePopup(popupAddCard)})
 fullscreenImagePopupCloseBtn.addEventListener('click', () => {closePopup(imagePopup)})
 formAddCard.addEventListener('submit', submitAddCardForm)
+popupEditProfile.addEventListener('click', (evt)=>{
+    if (evt.target === evt.currentTarget){
+        closePopup(popupEditProfile)
+    }
+})
+popupAddCard.addEventListener('click', (evt)=>{
+    if (evt.target === evt.currentTarget){
+        closePopup(popupAddCard)
+    }
+})
+imagePopup.addEventListener('click', (evt)=>{
+    if (evt.target === evt.currentTarget){
+        closePopup(imagePopup)
+    }
+})
