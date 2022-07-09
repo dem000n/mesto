@@ -108,6 +108,47 @@ function zoomCard(event) {
 
 loadInitialCards()
 
+
+//Валидация форм
+
+// const profileNameInput = document.querySelector('.input_type_name')
+// profileNameInput.addEventListener('input', ()=>{
+//     console.log('123');
+// })
+
+function showInputError (formElement, inputElement, errorMessage){
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
+    errorElement.textContent = errorMessage
+    errorElement.classList.add('popup__error_active')
+}
+
+function hideInputError () {
+    const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
+    errorElement.textContent = ''
+    errorElement.classList.remove('popup__error_active')
+}
+
+function enableValidation () {
+    const formList = Array.from(document.querySelectorAll('.popup__form'))
+    formList.forEach((formElement)=>{
+        formElement.addEventListener('submit', (evt)=>{
+            evt.preventDefault()
+        })
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 editProfileBtn.addEventListener('click', showEditProfilePopup)
 closeProfilePopupBtn.addEventListener('click', () => {closePopup(popupEditProfile)})
 profileForm.addEventListener('submit', submitEditProfileForm)
