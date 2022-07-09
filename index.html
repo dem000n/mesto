@@ -56,10 +56,10 @@
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form_type_add-card" name="popup__form">
                 <input type="text" id="title-input" placeholder="Название" name="add-card-popup-title-input"
-                    class="input input_type_card-title">
+                    class="input input_type_card-title" minlength="2" maxlength="30" required>
                     <span class="input__error title-input-error">Текст ошибки</span>
-                <input type="text" id="title-input" placeholder="Ссылка на картинку" name="add-card-popup-image-link-input"
-                    class="input input_type_card-link">
+                <input type="url" id="title-input" placeholder="Ссылка на картинку" name="add-card-popup-image-link-input"
+                    class="input input_type_card-link" required>
                     <span class="input__error link-input-error">Текст ошибки</span>
                 <input type="submit" value="Создать" class="popup__submit-btn">
             </form>
