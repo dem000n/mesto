@@ -133,10 +133,18 @@ function showInputError (formElement, inputElement, errorMessage){
     errorElement.classList.add('popup__error_active')
 }
 
-function hideInputError () {
+function hideInputError (formElement, inputElement) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
     errorElement.textContent = ''
     errorElement.classList.remove('popup__error_active')
+}
+
+function checkInputValidity (inputElement, formElement) {
+    if (!inputElement.validity.valid) {
+        showInputError(formElement, inputElement, inputElement.validationMessage)
+    } else {
+        hideInputError(formElement, inputElement)
+    }
 }
 
 function enableValidation () {
