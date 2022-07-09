@@ -125,6 +125,7 @@ function setEventListeners (formElement){
 
 function showInputError (formElement, inputElement, errorMessage){
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
+    inputElement.classList.add('input_error')
     errorElement.textContent = errorMessage
     errorElement.classList.add('popup__error_active')
 }
@@ -133,6 +134,7 @@ function hideInputError (formElement, inputElement) {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
     errorElement.textContent = ''
     errorElement.classList.remove('popup__error_active')
+    inputElement.classList.remove('input_error')
 }
 
 function checkInputValidity (inputElement, formElement) {
