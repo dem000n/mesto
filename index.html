@@ -57,10 +57,10 @@
             <form class="popup__form popup__form_type_add-card" name="popup__form" novalidate>
                 <input type="text" id="title-input" placeholder="Название" name="add-card-popup-title-input"
                     class="input input_type_card-title" minlength="2" maxlength="30" required>
-                    <span class="popup__error title-input-error">Текст ошибки</span>
+                    <span class="popup__error title-input-error"></span>
                 <input type="url" id="link-input" placeholder="Ссылка на картинку" name="add-card-popup-image-link-input"
                     class="input input_type_card-link" required>
-                    <span class="popup__error link-input-error">Текст ошибки</span>
+                    <span class="popup__error link-input-error"></span>
                 <input type="submit" value="Создать" class="popup__submit-btn">
             </form>
             <button aria-label="Закрыть" class="popup__close-btn" type="button"></button>
@@ -86,8 +86,10 @@
             </div>
         </div>
     </template>
+    
     <script src="./scripts/initial-cards.js"></script>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
 </body>
 
 </html>
