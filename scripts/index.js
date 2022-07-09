@@ -118,10 +118,12 @@ loadInitialCards()
 
 function setEventListeners (formElement){
     const inputList = Array.from(formElement.querySelectorAll('.input'))
+    const buttonElement = formElement.querySelector('.popup__submit-btn')
     inputList.forEach((inputElement)=>{
         inputElement.addEventListener('input', ()=>{
-
+            checkInputValidity(inputElement, formElement)
             ////todo
+            toggleButtonState(inputList, buttonElement)
 
         })
     })
@@ -156,6 +158,7 @@ function enableValidation () {
         setEventListeners(formElement)
     })
 }
+enableValidation()
 
 function hasInvalidInput (inputList) {
     return inputList.some((inputElement) => {
@@ -163,11 +166,11 @@ function hasInvalidInput (inputList) {
       })
 }
 
-function toggleButtonState() {
-    if (hasInvalidInput) {
-
+function toggleButtonState(inputList, buttonElement) {
+    if (hasInvalidInput(inputList)) {
+        buttonElement.classList.add('popup__submit-btn_inactive')
     } else {
-        
+        buttonElement.classList.remove('popup__submit-btn_inactive')
     }
 }
 
