@@ -116,6 +116,17 @@ loadInitialCards()
 //     console.log('123');
 // })
 
+function setEventListeners (formElement){
+    const inputList = Array.from(formElement.querySelectorAll('.input'))
+    inputList.forEach((inputElement)=>{
+        inputElement.addEventListener('input', ()=>{
+
+            ////todo
+
+        })
+    })
+}
+
 function showInputError (formElement, inputElement, errorMessage){
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
     errorElement.textContent = errorMessage
@@ -134,6 +145,7 @@ function enableValidation () {
         formElement.addEventListener('submit', (evt)=>{
             evt.preventDefault()
         })
+        setEventListeners(formElement)
     })
 }
 
