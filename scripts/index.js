@@ -22,6 +22,7 @@ const fullscreenImagePopupCloseBtn = imagePopup.querySelector('.popup__close-btn
 //Функция открытия любого попапа
 function openPopup(popup) {
             popup.classList.add('popup_opened')
+            popupEditProfile.querySelector('.popup__submit-btn').classList.remove('popup__submit-btn_inactive')
 }
 
 //Функция закрытия любого попапа
@@ -107,72 +108,6 @@ function zoomCard(event) {
 }
 
 loadInitialCards()
-
-
-//Валидация форм
-
-function setEventListeners (formElement){
-    const inputList = Array.from(formElement.querySelectorAll('.input'))
-    const buttonElement = formElement.querySelector('.popup__submit-btn')
-    toggleButtonState(inputList, buttonElement)
-    inputList.forEach((inputElement)=>{
-        inputElement.addEventListener('input', ()=>{
-            checkInputValidity(inputElement, formElement)
-            toggleButtonState(inputList, buttonElement)
-        })
-    })
-}
-
-function showInputError (formElement, inputElement, errorMessage){
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
-    inputElement.classList.add('input_error')
-    errorElement.textContent = errorMessage
-    errorElement.classList.add('popup__error_active')
-}
-
-function hideInputError (formElement, inputElement) {
-    const errorElement = formElement.querySelector(`.${inputElement.id}-error`)
-    errorElement.textContent = ''
-    errorElement.classList.remove('popup__error_active')
-    inputElement.classList.remove('input_error')
-}
-
-function checkInputValidity (inputElement, formElement) {
-    if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, inputElement.validationMessage)
-    } else {
-        hideInputError(formElement, inputElement)
-    }
-}
-
-function enableValidation () {
-    const formList = Array.from(document.querySelectorAll('.popup__form'))
-    formList.forEach((formElement)=>{
-        formElement.addEventListener('submit', (evt)=>{
-            evt.preventDefault()
-        })
-        setEventListeners(formElement)
-    })
-}
-enableValidation()
-
-function hasInvalidInput (inputList) {
-    return inputList.some((inputElement) => {
-        return !inputElement.validity.valid
-      })
-}
-
-function toggleButtonState(inputList, buttonElement) {
-    if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add('popup__submit-btn_inactive')
-    } else {
-        buttonElement.classList.remove('popup__submit-btn_inactive')
-    }
-}
-
-
-
-
 
 
 
