@@ -135,7 +135,6 @@ imagePopup.addEventListener('click', (evt)=>{
     }
 })
 document.addEventListener('keydown', (evt)=>{
-    console.log(evt.key);
     if (evt.key === 'Escape') {
         openedPopup.classList.remove('popup_opened')
     }
