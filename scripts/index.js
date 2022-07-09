@@ -157,8 +157,18 @@ function enableValidation () {
     })
 }
 
+function hasInvalidInput (inputList) {
+    return inputList.some((inputElement) => {
+        return !inputElement.validity.valid
+      })
+}
+
 function toggleButtonState() {
-    
+    if (hasInvalidInput) {
+
+    } else {
+        
+    }
 }
 
 
