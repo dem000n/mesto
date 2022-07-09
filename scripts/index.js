@@ -18,11 +18,13 @@ const addCardButton = document.querySelector('.profile__add-btn')
 const addCardPopupCloseBtn = popupAddCard.querySelector('.popup__close-btn')
 const formAddCard = document.querySelector('.popup__form_type_add-card')
 const fullscreenImagePopupCloseBtn = imagePopup.querySelector('.popup__close-btn')
+let openedPopup
 
 //Функция открытия любого попапа
 function openPopup(popup) {
             popup.classList.add('popup_opened')
             popupEditProfile.querySelector('.popup__submit-btn').classList.remove('popup__submit-btn_inactive')
+            openedPopup = popup
 }
 
 //Функция закрытия любого попапа
@@ -130,5 +132,11 @@ popupAddCard.addEventListener('click', (evt)=>{
 imagePopup.addEventListener('click', (evt)=>{
     if (evt.target === evt.currentTarget){
         closePopup(imagePopup)
+    }
+})
+document.addEventListener('keydown', (evt)=>{
+    console.log(evt.key);
+    if (evt.key === 'Escape') {
+        openedPopup.classList.remove('popup_opened')
     }
 })
