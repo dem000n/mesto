@@ -111,11 +111,6 @@ loadInitialCards()
 
 //Валидация форм
 
-// const profileNameInput = document.querySelector('.input_type_name')
-// profileNameInput.addEventListener('input', ()=>{
-//     console.log('123');
-// })
-
 function setEventListeners (formElement){
     const inputList = Array.from(formElement.querySelectorAll('.input'))
     const buttonElement = formElement.querySelector('.popup__submit-btn')
@@ -123,9 +118,7 @@ function setEventListeners (formElement){
     inputList.forEach((inputElement)=>{
         inputElement.addEventListener('input', ()=>{
             checkInputValidity(inputElement, formElement)
-            ////todo
             toggleButtonState(inputList, buttonElement)
-
         })
     })
 }
