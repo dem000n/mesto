@@ -1,5 +1,5 @@
-const editProfileBtn = document.querySelector('.profile__edit-btn')
-const closeProfilePopupBtn = document.querySelector('.popup__close-btn')
+const btnEditProfile = document.querySelector('.profile__edit-btn')
+const btnCloseProfilePopup = document.querySelector('.popup__close-btn')
 const popupEditProfile = document.querySelector('.popup_type_edit-profile')
 const profileForm = document.querySelector('.popup__form_type_profile')
 const placeCardTemplate = document.querySelector('#place-card-template').content
@@ -12,10 +12,10 @@ const cardLinkInput = document.querySelector('.input_type_card-link')
 const imagePopup = document.querySelector('.popup_type_fullscreen-image')
 const imagePopupImage = document.querySelector('.popup__image')
 const imagePopupCaption = document.querySelector('.popup__caption')
-const placeCards = document.querySelector('.places-grid')
+const placeCard = document.querySelector('.places-grid')
 const popupAddCard = document.querySelector('.popup_type_add-card')
-const addCardButton = document.querySelector('.profile__add-btn')
-const addCardPopupCloseBtn = popupAddCard.querySelector('.popup__close-btn')
+const btnAddCard = document.querySelector('.profile__add-btn')
+const btnCloaseAddCardPopup = popupAddCard.querySelector('.popup__close-btn')
 const formAddCard = document.querySelector('.popup__form_type_add-card')
 const fullscreenImagePopupCloseBtn = imagePopup.querySelector('.popup__close-btn')
 let openedPopup
@@ -23,7 +23,6 @@ let openedPopup
 //Функция открытия любого попапа
 function openPopup(popup) {
             popup.classList.add('popup_opened')
-            popupEditProfile.querySelector('.popup__submit-btn').classList.remove('popup__submit-btn_inactive')
             openedPopup = popup
 }
 
@@ -35,6 +34,7 @@ function closePopup(popup) {
 function showEditProfilePopup() {
     popupNameText.value = profileNameText.textContent
     popupAboutText.value = profileAboutText.textContent
+    popupEditProfile.querySelector('.popup__submit-btn').classList.remove('popup__submit-btn_inactive')
     openPopup(popupEditProfile)
 }
 
@@ -51,7 +51,7 @@ function submitAddCardForm(evt) {
     const cardTitle = cardTitleInput.value
     const cardLink = cardLinkInput.value
     formAddCard.reset()
-    placeCards.prepend(createCard(cardTitle,cardLink))
+    placeCard.prepend(createCard(cardTitle,cardLink))
     closePopup(popupAddCard)
 }
 
@@ -70,7 +70,7 @@ function loadInitialCards() {
     initialCards.forEach((item) => {
         cardName = item.name
         cardLink = item.link
-        placeCards.prepend(createCard(cardName, cardLink))
+        placeCard.prepend(createCard(cardName, cardLink))
     })
 }
 
@@ -112,24 +112,24 @@ function zoomCard(event) {
 loadInitialCards()
 
 
-editProfileBtn.addEventListener('click', showEditProfilePopup)
-closeProfilePopupBtn.addEventListener('click', () => {closePopup(popupEditProfile)})
+btnEditProfile.addEventListener('click', showEditProfilePopup)
+btnCloseProfilePopup.addEventListener('click', () => {closePopup(popupEditProfile)})
 profileForm.addEventListener('submit', submitEditProfileForm)
-addCardButton.addEventListener('click', () => {openPopup(popupAddCard)})
-addCardPopupCloseBtn.addEventListener('click', () => {closePopup(popupAddCard)})
+btnAddCard.addEventListener('click', () => {openPopup(popupAddCard)})
+btnCloaseAddCardPopup.addEventListener('click', () => {closePopup(popupAddCard)})
 fullscreenImagePopupCloseBtn.addEventListener('click', () => {closePopup(imagePopup)})
 formAddCard.addEventListener('submit', submitAddCardForm)
-popupEditProfile.addEventListener('click', (evt)=>{
+popupEditProfile.addEventListener('mousedown', (evt)=>{
     if (evt.target === evt.currentTarget){
         closePopup(popupEditProfile)
     }
 })
-popupAddCard.addEventListener('click', (evt)=>{
+popupAddCard.addEventListener('mousedown', (evt)=>{
     if (evt.target === evt.currentTarget){
         closePopup(popupAddCard)
     }
 })
-imagePopup.addEventListener('click', (evt)=>{
+imagePopup.addEventListener('mousedown', (evt)=>{
     if (evt.target === evt.currentTarget){
         closePopup(imagePopup)
     }
