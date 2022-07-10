@@ -48,6 +48,13 @@ function showEditProfilePopup() {
     openPopup(popupEditProfile)
 }
 
+function showAddCardPopup() {
+    const inputEvent = new Event('input')
+    cardTitleInput.dispatchEvent(inputEvent)
+    cardLinkInput.dispatchEvent(inputEvent)
+    openPopup(popupAddCard)
+}
+
 function submitEditProfileForm(evt) {
     evt.preventDefault()
     profileNameText.textContent = popupNameText.value
@@ -126,7 +133,7 @@ loadInitialCards()
 btnEditProfile.addEventListener('click', showEditProfilePopup)
 btnCloseProfilePopup.addEventListener('click', () => {closePopup(popupEditProfile)})
 profileForm.addEventListener('submit', submitEditProfileForm)
-btnAddCard.addEventListener('click', () => {openPopup(popupAddCard)})
+btnAddCard.addEventListener('click', showAddCardPopup)
 btnCloaseAddCardPopup.addEventListener('click', () => {closePopup(popupAddCard)})
 fullscreenImagePopupCloseBtn.addEventListener('click', () => {closePopup(imagePopup)})
 formAddCard.addEventListener('submit', submitAddCardForm)
