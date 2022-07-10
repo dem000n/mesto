@@ -42,7 +42,9 @@ function setEscListener(evt) {
 function showEditProfilePopup() {
     popupNameText.value = profileNameText.textContent
     popupAboutText.value = profileAboutText.textContent
-    popupEditProfile.querySelector('.popup__submit-btn').classList.remove('popup__submit-btn_inactive')
+    const inputEvent = new Event('input')
+    popupNameText.dispatchEvent(inputEvent)
+    popupAboutText.dispatchEvent(inputEvent)
     openPopup(popupEditProfile)
 }
 
