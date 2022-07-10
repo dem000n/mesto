@@ -60,6 +60,7 @@ function submitAddCardForm(evt) {
     const cardLink = cardLinkInput.value
     formAddCard.reset()
     placeCard.prepend(createCard(cardTitle,cardLink))
+    formAddCard.querySelector('.popup__submit-btn').classList.add('popup__submit-btn_inactive')
     closePopup(popupAddCard)
 }
 
@@ -142,8 +143,3 @@ imagePopup.addEventListener('mousedown', (evt)=>{
         closePopup(imagePopup)
     }
 })
-// document.addEventListener('keydown', (evt)=>{
-//     if (evt.key === 'Escape') {
-//         openedPopup.classList.remove('popup_opened')
-//     }
-// })
